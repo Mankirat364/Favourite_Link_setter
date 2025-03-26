@@ -84,7 +84,7 @@ const LinkCard = ({ link, link_id,isbrowseTab,user }) => {
 
         try {
             const response = await axios.put(
-                "http://localhost:3000/links/update",
+                "https://favourite-link-setter-backend.onrender.com/links/update",
                 { ...formData, link_id },
                 {
                     headers: {
@@ -113,7 +113,7 @@ const LinkCard = ({ link, link_id,isbrowseTab,user }) => {
         }
     
         try {
-            const response = await axios.delete(`http://localhost:3000/links/delete/${link_id}`, {
+            const response = await axios.delete(`https://favourite-link-setter-backend.onrender.com/links/delete/${link_id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     "Content-Type": "application/json",
