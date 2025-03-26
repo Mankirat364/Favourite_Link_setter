@@ -22,7 +22,7 @@ const LinksComp = ({ user, googleuser }) => {
         console.error("Token is missing in localStorage");
         return;
       }
-      const reponse = await axios.get('http://localhost:3000/links/link', {
+      const reponse = await axios.get('https://favourite-link-setter-backend.onrender.com/links/link', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -42,7 +42,7 @@ const LinksComp = ({ user, googleuser }) => {
   }, [])
 const handleLogout = async() =>{
     try {
-      const response = await axios.delete('http://localhost:3000/user/logout',{
+      const response = await axios.delete('https://favourite-link-setter-backend.onrender.com/user/logout',{
         withCredentials: true,
       })
       localStorage.clear('authToken');
