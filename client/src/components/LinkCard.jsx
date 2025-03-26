@@ -160,8 +160,8 @@ const LinkCard = ({ link, link_id,isbrowseTab,user }) => {
                 <div onClick={() => {
                     navigator.clipboard.writeText(link?.url);
                     toast.success("Successfully copied to clipboard!");
-                }} className="absolute bottom-0 text-[1vw] w-fit h-fit p-2 rounded-2xl backfileter text-white cursor-pointer">
-                    <p className="mytext">{link?.url}</p>
+                }} className="absolute overflow-auto bottom-0 text-[1vw] w-fit h-fit p-2 rounded-2xl backfileter text-white cursor-pointer">
+                    <p className="mytextemail2">{link?.url}</p>
                 </div>
             </div>
 
