@@ -44,9 +44,8 @@ export const userRegister = async (req, res) => {
 
         res.cookie("token", token, {
             sameSite: "lax",
-            httpOnly : true, 
-            secure: false,
-            expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
+           httpOnly: true,
+    secure: true,
         });
 
         return res.status(201).json({
@@ -90,9 +89,8 @@ export const userLogin = async (req, res) => {
 
         res.cookie("token", token, {
             sameSite: "lax", 
-            secure: false,
-            httpOnly : true,
-            expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
+          httpOnly: true,
+    secure: true,
         });
 
         return res.status(200).json({
