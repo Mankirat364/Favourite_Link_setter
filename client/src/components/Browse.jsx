@@ -16,7 +16,7 @@ const Browse = () => {
     }
 
     try {
-      const response = await axios.get("http://localhost:3000/links/allLink", {
+      const response = await axios.get("https://favourite-link-setter-backend.onrender.com/links/allLink", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
