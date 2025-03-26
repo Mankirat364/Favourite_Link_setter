@@ -34,7 +34,7 @@ const Register = () => {
         console.log("Form Data Before Sending:", formData);
 
         try {
-            const response = await axios.post('http://localhost:3000/user/register', formData, {
+            const response = await axios.post('https://favourite-link-setter-backend.onrender.com/user/register', formData, {
                 withCredentials: true
             });
             console.log("Registration Successful:", response.data);
@@ -60,7 +60,7 @@ const Register = () => {
 
     const fetchToken = async () => {
         try {
-            const response = await axios.get("http://localhost:3000/user/getToken", {
+            const response = await axios.get("https://favourite-link-setter-backend.onrender.com/user/getToken", {
                 withCredentials: true,
             });
 
