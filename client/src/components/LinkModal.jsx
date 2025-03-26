@@ -44,7 +44,7 @@ const LinkModal = ({ isClicked, setIsClicked }) => {
     
         try {
             const response = await axios.post(
-                "http://localhost:3000/links/createLink",
+                "https://favourite-link-setter-backend.onrender.com/links/createLink",
                 payload,
                 {
                     headers: {
