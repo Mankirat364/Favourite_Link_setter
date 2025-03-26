@@ -15,9 +15,19 @@ EventEmitter.defaultMaxListeners = 15;
 
 dotenv.config();
 const app = express();
+const allowedOrigins = [
+    "http://localhost:5173",
+    "https://favourite-link-setter-frontend.onrender.com"
+];
 
 app.use(cors({
-    origin: "https://favourite-link-setter-frontend.onrender.com",
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error("Not allowed by CORS"));
+        }
+    },
     credentials: true
 }));
 
