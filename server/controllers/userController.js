@@ -43,7 +43,7 @@ export const userRegister = async (req, res) => {
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
 
         res.cookie("token", token, {
-            sameSite: "lax",
+            sameSite: "None",
            httpOnly: true,
     secure: true,
         });
@@ -88,7 +88,7 @@ export const userLogin = async (req, res) => {
 
 
         res.cookie("token", token, {
-            sameSite: "lax", 
+            sameSite: "None", 
           httpOnly: true,
     secure: true,
         });
@@ -108,7 +108,7 @@ export const userLogin = async (req, res) => {
 export const userLogout = async (req, res) => {
     try {
         res.clearCookie("token", {
-            sameSite: "lax",
+            sameSite: "None",
             secure:false,
             httpOnly : true
         })
