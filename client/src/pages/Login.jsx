@@ -48,7 +48,7 @@
     const handleSubmit = async(e) =>{
       e.preventDefault()
       try {
-          const response = await axios.post('http://localhost:3000/user/login',formData, {
+          const response = await axios.post('https://favourite-link-setter-backend.onrender.com/user/login',formData, {
             withCredentials : true
           })
           console.log("Login Successful:", response.data);
@@ -61,7 +61,7 @@
     
     const fetchToken = async () => {
           try {
-              const response = await axios.get("http://localhost:3000/user/getToken", {
+              const response = await axios.get("https://favourite-link-setter-backend.onrender.com/user/getToken", {
                   withCredentials: true,
               });
 
