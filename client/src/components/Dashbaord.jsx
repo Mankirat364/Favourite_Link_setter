@@ -13,7 +13,7 @@ const Dashboard = () => {
         console.error("Token is missing in localStorage");
         return;
       }
-      const response = await axios.get("http://localhost:3000/links/link", {
+      const response = await axios.get("https://favourite-link-setter-backend.onrender.com/links/link", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
