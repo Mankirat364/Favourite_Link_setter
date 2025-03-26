@@ -129,55 +129,92 @@ const Register = () => {
 
 
     return (
-        <div className='h-screen w-screen flex px-4 py-4 RegsiterPageBackground'>
+        <div className="min-h-screen w-full flex flex-col md:flex-row px-4 py-4 items-center bg-gray-900">
 
-            <div className="left-box w-[55vw] h-[80%]">
-                <div className="content flex flex-col items-center">
-                    <div className=" flex items-center">
-                        <div className="logo"><SiGnuprivacyguard className='w-16 h-16 text-white' /></div>
-                        <h1 className='pt-2 text-white font-bold text-[4vw]'>Sign Up</h1>
-                    </div>
-                    <p className='pt-2 text-zinc-500'>welcome to Favstorage Setter - Let's create account</p>
-                    {/* <div className="button pt-2 ">
-                        <button onClick={handleGoogleLogin} className='flex items-center gap-2 border border-zinc-500 py-3 justify-center w-[38vw] rounded-2xl hover:bg-black transition-all ease-linear  font-[500] hover:text-white cursor-pointer '><FcGoogle size={30} /> Login With Google</button>
-                    </div> */}
-                    <h1 className='mt-4 border-white text-white border-t border-b pb-2 text-center w-[70%] pt-2'>
-                        Get Started
-                    </h1>
+            <div className="w-full md:w-2/3 lg:w-1/2 flex flex-col items-center text-white p-6">
+                <div className="flex items-center gap-3">
+                    <SiGnuprivacyguard className="w-12 h-12 text-white" />
+                    <h1 className="text-3xl md:text-4xl font-bold">Sign Up</h1>
                 </div>
-                <form onSubmit={handleRegisterSubmit} className='flex text-white max-w-[70%] m-auto flex-col pt-4'>
-                    <div className="flex flex-col gap-2">
-                        <div className="">
-                            <label htmlFor="name">Name</label>
-                        </div>
-                        <input type="text" name='username' value={formData.username} onChange={handleInputChange} className='border border-zinc-500 font-[500] outline-none p-3 rounded-2xl' placeholder='Enter Your name' />
-                    </div>
-                    <div className="flex flex-col pt-4 gap-2">
-                        <div className="">
-                            <label htmlFor="name">E-mail</label>
-                        </div>
-                        <input name='email' type="email" value={formData.email} onChange={handleInputChange} className='border border-zinc-500 font-[500]  outline-none p-3 rounded-2xl' placeholder='Enter Your Email' />
-                    </div>
-                    <div className="flex flex-col pt-4 gap-2 ">
-                        <div className="">
-                            <label htmlFor="name">Password</label>
-                        </div>
-                        <div className="relative w-full">
-                            <input name='password' type={passopen === false ? 'text' : 'password'} className='border border-zinc-500 w-full font-[500]  outline-none p-3 rounded-2xl' placeholder='Enter Your Password' value={formData.password} onChange={handleInputChange} />
-                            {passopen ? <IoIosEyeOff size={25} className='absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer' onClick={passwordOnOff} /> : <IoIosEye size={25} className='absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer' onClick={passwordOnOff} />}
+                <p className="pt-2 text-gray-400 text-center text-sm md:text-base">
+                    Welcome to Favstorage Setter - Let's create your account
+                </p>
 
+                <h1 className="mt-4 border-t border-b border-gray-500 text-center w-4/5 py-2 text-lg">
+                    Get Started
+                </h1>
+
+                <form onSubmit={handleRegisterSubmit} className="flex flex-col w-full max-w-md pt-4 gap-4">
+               
+                    <div className="flex flex-col gap-1">
+                        <label htmlFor="name">Name</label>
+                        <input
+                            type="text"
+                            name="username"
+                            value={formData.username}
+                            onChange={handleInputChange}
+                            className="border border-gray-500 outline-none p-3 rounded-lg bg-gray-800 text-white"
+                            placeholder="Enter Your Name"
+                        />
+                    </div>
+
+                    <div className="flex flex-col gap-1">
+                        <label htmlFor="email">E-mail</label>
+                        <input
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleInputChange}
+                            className="border border-gray-500 outline-none p-3 rounded-lg bg-gray-800 text-white"
+                            placeholder="Enter Your Email"
+                        />
+                    </div>
+
+                    <div className="flex flex-col gap-1">
+                        <label htmlFor="password">Password</label>
+                        <div className="relative">
+                            <input
+                                type={passopen ? "text" : "password"}
+                                name="password"
+                                value={formData.password}
+                                onChange={handleInputChange}
+                                className="border border-gray-500 outline-none p-3 rounded-lg bg-gray-800 text-white w-full"
+                                placeholder="Enter Your Password"
+                            />
+                            {passopen ? (
+                                <IoIosEyeOff
+                                    size={25}
+                                    className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer"
+                                    onClick={passwordOnOff}
+                                />
+                            ) : (
+                                <IoIosEye
+                                    size={25}
+                                    className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer"
+                                    onClick={passwordOnOff}
+                                />
+                            )}
                         </div>
                     </div>
-                    <div className="flex pt-4 gap-2 w-full">
-                        <button className='flex w-full p-2 rounded-xl justify-center  bg-zinc-900 hover:bg-zinc-800 cursor-pointer text-white items-center gap-2'>Register <FaLocationArrow color='white' /> </button>
-                    </div>
-                    <div className="flex pt-4 gap-2 w-full">
-                        Created an account ? <Link to='/login' className='underline'>Login</Link>
-                    </div>
+
+                    <button
+                        className="flex w-full p-3 rounded-lg justify-center bg-blue-600 hover:bg-blue-500 transition text-white items-center gap-2"
+                    >
+                        Register <FaLocationArrow color="white" />
+                    </button>
+
+                    <p className="text-center text-sm md:text-base">
+                        Already have an account? <Link to="/login" className="underline text-blue-400">Login</Link>
+                    </p>
                 </form>
             </div>
-            <div className="right-box w-[45vw] h-[100%]  flex flex-col justify-center ">
-                <img src={illustration} className='w-full h-full object-cover rounded-2xl ' alt="" />
+
+            <div className="w-full md:w-1/3 lg:w-1/2 flex justify-center items-center">
+                <img
+                    src={illustration}
+                    className="w-full max-w-md h-auto rounded-lg object-cover"
+                    alt="Signup Illustration"
+                />
             </div>
 
             {error && (
@@ -191,10 +228,9 @@ const Register = () => {
                     pauseOnFocusLoss
                     draggable
                     pauseOnHover
-                    theme="light"
+                    theme="dark"
                     transition={Bounce}
                 />
-
             )}
         </div>
     )
