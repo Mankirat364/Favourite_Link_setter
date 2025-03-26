@@ -35,7 +35,7 @@ const Settings = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.put(`http://localhost:3000/user/update/${userId}`, formData, {
+            const response = await axios.put(`https://favourite-link-setter-backend.onrender.com/user/update/${userId}`, formData, {
                 withCredentials: true
             })
             console.log(response.data);
